@@ -1,0 +1,13 @@
+torchrun --nnodes 1 --nproc-per-node 8 generate.py \
+    --ckpt-path /data/models/DeepSeek-R1-0528 \
+    --config configs/config_671B.json \
+    --interactive \
+    --temperature 0.7 \
+    --max-new-tokens 200
+
+torchrun --nnodes 1 --nproc-per-node 8 generate.py \
+    --ckpt-path /data/models\
+    --config configs/config_v3.1.json \
+    --interactive \
+    --temperature 0.7 \
+    --max-new-tokens 200
