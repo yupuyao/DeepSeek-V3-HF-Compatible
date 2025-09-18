@@ -60,8 +60,9 @@ You can obtain the official weights from Hugging Face:
 
 | Model | Total Params | Activated Params | Context Length | Hugging Face Link |
 |-------|-------------|-----------------|----------------|-----------------|
-| DeepSeek-V3-Base | 671B | 37B | 128K | [🤗 HF](https://huggingface.co/deepseek-ai/DeepSeek-V3-Base) |
-| DeepSeek-V3 | 671B | 37B | 128K | [🤗 HF](https://huggingface.co/deepseek-ai/DeepSeek-V3) |
+| DeepSeek-V3 | 671B | 37B | 128K | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-V3) \| [ModelScope](https://modelscope.cn/models/deepseek-ai/DeepSeek-V3) |
+| DeepSeek-R1   | 671B | 37B |  128K   | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-R1) \| [ModelScope](https://modelscope.cn/models/deepseek-ai/DeepSeek-R1) |
+| DeepSeek-V3.1 | 671B | 37B | 128K | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-V3.1) \| [ModelScope](https://modelscope.cn/models/deepseek-ai/DeepSeek-V3.1) |
 
 > Note: This repository enables **direct usage** of these official weights without additional conversion steps.
 
@@ -86,7 +87,7 @@ torchrun --nnodes 1 --nproc-per-node 8 generate.py \
     --temperature 0.7 \
     --max-new-tokens 200
 ```
-or with DeepSeek V3.1
+or with DeepSeek-V3.1
 
 ```shell
 torchrun --nnodes 1 --nproc-per-node 8 generate.py \
@@ -96,7 +97,16 @@ torchrun --nnodes 1 --nproc-per-node 8 generate.py \
     --temperature 0.7 \
     --max-new-tokens 200
 ```
-
+You can try stream output by
+```shell
+torchrun --nnodes 1 --nproc-per-node 8 generate.py \
+    --ckpt-path /path/to/DeepSeek-V3.1\
+    --config configs/config_v3.1.json \
+    --interactive \
+    --temperature 0.7 \
+    --max-new-tokens 200 \
+    --stream
+```
 ## 6. License
 This repository is licensed under the MIT License. Usage of DeepSeek-V3 weights is subject to the official Model License.
 
